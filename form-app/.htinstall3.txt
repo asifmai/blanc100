@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+    <title>Form Tools Installation Script</title>
+    <script>
+        //<![CDATA[
+        var g = {};
+        g.root_url = "";
+        g.error_colours = ["ffbfbf", "ffeded"];
+        g.notify_colours = ["c6e2ff", "f2f8ff"];
+        //]]>
+    </script>
+    <script src="../global/scripts/jquery.js"></script>
+    <script src="../themes/default/scripts/jquery-ui-1.8.6.custom.min.js"></script>
+    <link href="../themes/default/css/smoothness/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="files/main.css">
+    <script src="../global/scripts/general.js"></script>
+    <script src="../global/scripts/rsv.js"></script>
+    
+    <link href="../global/codemirror/lib/codemirror.css" rel="stylesheet" type="text/css" />
+<script src="../global/codemirror/lib/codemirror.js"></script>
+<script src="../global/codemirror/mode/xml/xml.js"></script>
+<script src="../global/codemirror/mode/smarty/smarty.js"></script>
+<script src="../global/codemirror/mode/php/php.js"></script>
+<script src="../global/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="../global/codemirror/mode/css/css.js"></script>
+<script src="../global/codemirror/mode/javascript/javascript.js"></script>
+<script src="../global/codemirror/mode/clike/clike.js"></script>
+</head>
+<body>
+<div id="container">
+    <div id="header">
+        <div id="version-block">
+            <img src="../themes/default/images/account_section_left_green2x.png" border="0" width="8" height="25"/>
+            <div id="account_section">3.0.9</div>
+            <img src="../themes/default/images/account_section_right_green2x.png" border="0" width="8" height="25"/>
+        </div>
+        <span style="float:left; padding-top: 4px">
+            <a href="http://www.formtools.org" class="no_border">
+                <img src="../themes/default/images/logo_green2x.png" border="0" width="220" height="67" />
+            </a>
+        </span>
+    </div>
+    <div id="content">
+        <h1>Installation</h1>
+        <div id="nav_items">
+            <div class="nav_visited">1 <span
+                        class="delim">-</span> Welcome!</div>
+            <div class="nav_visited">
+                2 <span class="delim">-</span> System Check
+            </div>
+            <div class="nav_visited">
+                3 <span class="delim">-</span> Create Database Tables
+            </div>
+            <div class="nav_current">
+                4 <span class="delim">-</span> Create Config File
+            </div>
+            <div class="nav_remaining">
+                5 <span class="delim">-</span> Create Admin Account
+            </div>
+            <div class="nav_remaining">
+                6 <span class="delim">-</span> Clean Up
+            </div>
+        </div>
+        <div id="main">
+
+
+<h2>Create Config File</h2>
+
+
+
+    
+
+    <div id="ft_message" style="width: 100%; display:none">
+        <div style="height: 8px;"> </div>
+        <div class="error" id="ft_message_inner"></div>
+    </div>
+
+
+<div style="height: 10px;"> </div>
+
+
+
+	<div class="margin_bottom_large">
+		Form Tools stores your server and database settings in a file called <b>config.php</b> in your /global/ folder. Click the "Create File" button to automatically generate the file on your server.
+	</div>
+
+	<textarea name="content" class="config_file_contents" id="cfc" readonly><?php
+
+// main program paths - no trailing slashes!
+$g_root_url = "https://www.blanc100.com/form-app";
+$g_root_dir = "/home/blanc100/public_html/form-app";
+
+// database settings
+$g_db_hostname = "localhost";
+$g_db_port = "3306";
+$g_db_name = "blanc100_ft1";
+$g_db_username = "blanc100_ft1";
+$g_db_password = "G.jI9uJcca1iMp4Zmkb03";
+$g_table_prefix = "ft_";
+
+?></textarea>
+    <script>
+      new CodeMirror.fromTextArea(document.getElementById("cfc"), {
+        mode: "php"
+          });
+    </script>
+
+	<form name="display_config_content_form" action="/form-app/install/step4.php" method="post">
+		<p>
+			<input type="submit" name="generate_file" value="Create File" />
+		</p>
+	</form>
+
+
+</div>
+<div class="clear"></div>
+
+<div id="footer">
+	<ul>
+		<li><a href="https://formtools.org" target="_blank">formtools.org</a></li>
+		<li><a href="https://docs.formtools.org/installation/" target="_blank">Installation Help</a></li>
+		<li><a href="https://docs.formtools.org" target="_blank">Documentation</a></li>
+		<li class="colN"><a href="https://github.com/formtools/core/" target="_blank">Github</a></li>
+	</ul>
+	<div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+</div>
+
+</body>
+</html>
+
